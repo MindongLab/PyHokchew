@@ -1,5 +1,5 @@
-from models.CikLinSyllable import CikLinSyllable
-from models.FoochowRomanized import FoochowRomanizedSyllable
+from .models.CikLinSyllable import CikLinSyllable
+from .models.FoochowRomanized import FoochowRomanizedSyllable
 
 def foochow_romanized_to_ciklin(f):
     ciklin_syllable = CikLinSyllable(f.initial,f.final,f.tone)

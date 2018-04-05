@@ -58,7 +58,7 @@ def normalise_buc(s):
     return unicodedata.normalize('NFKC',s)
 
 class FoochowRomanizedSyllable:
-    TONE_MAPPING = [-1, 0, 1, 2, 3, 4, 1, 6, 7]
+    TONE_MAPPING = [-1, 0, 1, 2, 3, 4, 1, 5, 6]
     TONE_MAPPING_REVERSE = [1,2,3,4,5,7,8]
 
     def __init__(self, initial, final, tone):
@@ -72,9 +72,22 @@ class FoochowRomanizedSyllable:
         pass
 
     def __str__(self):
-        result = FR_INITIALS[self.initial] + FR_FINALS[FR_FINALS_LIST[self.final]][self.TONE_MAPPING[self.tone]]
-        return "FR Syllable " + result + " [Initial=%d Final=%d Tone=%d]" % (self.initial, self.final, self.tone)
+        return "FR Syllable " + self.get_string() + " [Initial=%d Final=%d Tone=%d]" % (self.initial, self.final, self.tone)
 
+    def get_initial(self):
+        return FR_INITIALS[self.initial]
+    
+    def get_final_without_tone(self):
+        return FR_FINALS_LIST[self.final]
+
+    def get_final_with_tone(self):
+        return FR_FINALS[FR_FINALS_LIST[self.final]][self.TONE_MAPPING[self.tone]]
+    
+    def get_tone(self):
+        return self.tone
+
+    def get_string(self):
+        return FR_INITIALS[self.initial] + FR_FINALS[FR_FINALS_LIST[self.final]][self.TONE_MAPPING[self.tone]]
 
 def parse_foochow_romanized(s):
     s = normalise_buc(s)
