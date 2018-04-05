@@ -90,7 +90,8 @@ class FoochowRomanizedSyllable:
         return FR_INITIALS[self.initial] + FR_FINALS[FR_FINALS_LIST[self.final]][self.TONE_MAPPING[self.tone]]
 
 def parse_foochow_romanized(s):
-    s = normalise_buc(s)
+    s = normalise_buc(s).lower()
+    
     # Try parse initial
     initials_list = sorted(FR_INITIALS, key = lambda x: len(x), reverse= True) # Longer matches first
     

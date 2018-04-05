@@ -19,6 +19,16 @@ class ParserTestCase(unittest.TestCase):
         self.assertEqual(fr.get_final_without_tone(),'ing')
         self.assertEqual(fr.get_tone(), 1)
 
+    def test_foochow_romanized_capital(self):
+        fr = parse_foochow_romanized('Sĭng')
+        self.assertEqual(fr.get_initial(),'s')
+        self.assertEqual(fr.get_final_without_tone(),'ing')
+        self.assertEqual(fr.get_tone(), 1)
+
+        fr = parse_foochow_romanized('À̤')
+        self.assertEqual(fr.get_initial(),'')
+        self.assertEqual(fr.get_final_without_tone(),'a̤')
+        self.assertEqual(fr.get_tone(), 5)
 
     def test_ciklin(self):
         #self.assertEqual
