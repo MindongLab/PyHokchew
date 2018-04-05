@@ -7,7 +7,7 @@ A Python library for dealing with Hokchew data.
 
 ### Installation
 ```
-pip install -e git+https://github.com/MindongLab/PyHokchew
+pip install git+https://github.com/MindongLab/PyHokchew
 ```
 
 ### Parse Foochow Romanized
