@@ -30,5 +30,5 @@ class ParserTestCase(unittest.TestCase):
             parsed = parse_foochow_romanized(c)
             #self.assertEqual(c, parsed.get_string())
             converted = ciklin_to_foochow_romanized(foochow_romanized_to_ciklin(parsed))
-            self.assertEquals(normalised(c), converted.get_string())
+            self.assertEqual(normalised(c), converted.get_string())
     
