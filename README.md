@@ -3,6 +3,10 @@ A Python library for dealing with Hokchew data.
 
 > This library is currently pre-alpha. Things can change without notice.
 
+
+## Prerequisite
+  - Python 3.6
+
 ## Example usage
 
 ### Installation
@@ -37,4 +41,21 @@ pip install git+https://github.com/MindongLab/PyHokchew
 'âe̤'
 >>> convert('鶯','初','下平')
 'è̤'
+```
+
+
+## Developing
+
+### Install from source
+> `pip` here refers to PIP 3+
+
+```bash
+git clone https://github.com/MindongLab/PyHokchew.git
+cd PyHokchew
+pip install -e .
+```
+
+### Running unit tests
+```bash
+python -m unittest discover -v . "*Test.py"
 ```

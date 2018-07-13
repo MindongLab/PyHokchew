@@ -18,6 +18,9 @@ INITIALS_LING = ['柳','邊','求','悉','聲','波','皆','之','女','授',
 TONE_NAMES = ['上平','上上','上去','上入','下平','下上','下去','下入']
 
 class CikLinSyllable():
+    """
+    Presentation of a 戚林八音 syllable.
+    """
     def __init__(self, initial, final, tone):
         if not(initial in range(len(INITIALS_CEIK)) and final in range(len(FINALS_CEIK)) and tone in range(1,9)):
             raise ValueError('Invalid CikLin syllable arguments.')
@@ -33,9 +36,13 @@ class CikLinSyllable():
         t = TONE_NAMES[self.tone-1]
         return "%s%s切 %s" % (i,f,t)
 
-    def parse_ciklin_string(fanqie, tone_name):
+    def __repr__(self):
+        return self.__str__()
+
+    @classmethod
+    def from_ciklin_string(cls, fanqie, tone_name):
         """
-        解析戚林八音反切字
+        解析戚林八音反切字.
         """
         fanqie = fanqie.strip()
         if fanqie.endswith('切'):
