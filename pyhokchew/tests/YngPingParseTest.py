@@ -22,6 +22,11 @@ class YngPingParseTestCase(unittest.TestCase):
         self.assertEqual(s.rime, 'a')
         self.assertEqual(s.coda, '')
         self.assertEqual(s.tone, '242')
+        s = YngPingSyllable.from_string('siu55')
+        self.assertEqual(s.initial, 's')
+        self.assertEqual(s.rime, 'iu')
+        self.assertEqual(s.coda, '')
+        self.assertEqual(s.tone, '55')
 
 
     def test_yngping_should_parse_closed_syllable(self):
@@ -69,3 +74,4 @@ class YngPingParseTestCase(unittest.TestCase):
         self.assertEqual(YngPingSyllable.from_string('ging53').to_handwritten(), normalise('gìng'))
         self.assertEqual(YngPingSyllable.from_string('dyng53').to_handwritten(), normalise('dǜng'))
         self.assertEqual(YngPingSyllable.from_string('goeyng242').to_handwritten(), normalise('gë̂üng'))
+        self.assertEqual(YngPingSyllable.from_string('hei33').to_handwritten(), normalise('hēi'))

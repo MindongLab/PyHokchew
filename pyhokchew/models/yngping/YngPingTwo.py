@@ -18,7 +18,7 @@ YP_FINALS = [
     # 陰聲韻 甲類
     'a', 'e', 'o', 'oe', 'ia', 'ie', 'ua', 'uo', 'yo',
     # 陰聲韻 乙類
-    'au', 'ai', 'iau', 'uai', 'eu', 'ui', 'iu'
+    'au', 'ai', 'iau', 'uai', 'eu', 'ui', 'iu',
     # 陰聲韻 乙類 (不含和甲類重合的)
     'i', 'ei', 'u', 'ou', 'y', 'oey', 'oy',
     # 入聲韻 甲類
