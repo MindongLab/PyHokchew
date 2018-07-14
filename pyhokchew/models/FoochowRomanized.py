@@ -139,7 +139,7 @@ class FoochowRomanizedSyllable:
         initials_list = sorted(FR_INITIALS, key = lambda x: len(x), reverse= True) # Longer matches first
 
         for i in initials_list:
-            if (s.startswith(i)):
+            if s.startswith(i):
                 initial = FR_INITIALS.index(i)
                 remaining = s[len(i):]
                 break
