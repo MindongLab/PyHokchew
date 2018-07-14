@@ -43,6 +43,12 @@ pip install git+https://github.com/MindongLab/PyHokchew
 'è̤'
 ```
 
+### 榕拼輸入方案轉手寫方案
+```python
+>>> from pyhokchew.models.yngping.YngPingTwo import YngPingSyllable
+>>> YngPingSyllable.from_string('doeyng55').to_handwritten()
+'dëüng'
+```
 
 ## Developing
 

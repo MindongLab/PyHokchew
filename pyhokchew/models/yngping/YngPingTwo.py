@@ -124,6 +124,8 @@ class YngPingSyllable:
 
         return normalise(self.initial + rime + self.coda)
 
+    def to_typing(self):
+        return self.initial + self.rime + self.coda + self.tone
 
     def __str__(self):
         return 'YngPingSyllable Initial=%s Rime=%s Coda=%s Tone=%s' % (self.initial, self.rime, self.coda, self.tone)
@@ -144,8 +146,9 @@ class YngPingSyllable:
         if tone is None:
             raise Exception('No matching tone.')
 
+        sorted_initials = sorted(YP_INITIALS, reverse=True, key=lambda x: len(x))
         initial = None
-        for i in YP_INITIALS:
+        for i in sorted_initials:
             if s.startswith(i):
                 initial = i
                 s = s[len(i):]

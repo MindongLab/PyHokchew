@@ -17,6 +17,12 @@ class YngPingParseTestCase(unittest.TestCase):
         self.assertEqual(s.rime, 'a')
         self.assertEqual(s.coda, '')
         self.assertEqual(s.tone, '242')
+        s = YngPingSyllable.from_string('nga242')
+        self.assertEqual(s.initial, 'ng')
+        self.assertEqual(s.rime, 'a')
+        self.assertEqual(s.coda, '')
+        self.assertEqual(s.tone, '242')
+
 
     def test_yngping_should_parse_closed_syllable(self):
         """測試基本的 YngPing 鍵入方案解析. 入聲. """
