@@ -17,4 +17,4 @@ def ciklin_to_foochow_romanized_string(cInitial, cFinal, cTone):
     :param cTone: The tone name in QiLinBaYin. E.g. 上平, 下去.
     :return: The converted Foochow Romanized string.
     """
-    return ciklin_to_foochow_romanized(CikLinSyllable.parse_ciklin_string(cInitial+cFinal,cTone)).get_string()
+    return ciklin_to_foochow_romanized(CikLinSyllable.from_ciklin_string(cInitial+cFinal,cTone)).get_string()
