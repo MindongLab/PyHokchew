@@ -22,7 +22,7 @@ YP_FINALS = [
     # 陰聲韻 乙類 (不含和甲類重合的)
     'i', 'ei', 'u', 'ou', 'y', 'oey', 'oy',
     # 入聲韻 甲類
-    'ah', 'ak', 'oh', 'oeh', 'iah', 'iak', 'ieh', 'iek', 'uah', 'uak', 'uoh', 'uok', 'yoh', 'yok',
+    'ah', 'ak', 'eh', 'oh', 'oeh', 'iah', 'iak', 'ieh', 'iek', 'uah', 'uak', 'uoh', 'uok', 'yoh', 'yok',
     # 入聲韻 丙類
     'ik', 'eik', 'ih', 'eih', 'aik', 'uk', 'ouk', 'auk', 'yk', 'oeyk', 'oyk',
     # 陽聲韻 甲類
