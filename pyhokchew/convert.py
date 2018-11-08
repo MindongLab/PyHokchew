@@ -1,5 +1,5 @@
-from .models.CikLinSyllable import CikLinSyllable
-from .models.FoochowRomanized import FoochowRomanizedSyllable
+from .models.historical.CikLinSyllable import CikLinSyllable
+from .models.historical.FoochowRomanized import FoochowRomanizedSyllable
 from .models.concurrent.matsu import WuyixingSyllable
 from .models.concurrent.minjiang import MinjiangSyllable
 from .models.yngping.YngPingTwo import YngPingSyllable

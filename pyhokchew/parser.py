@@ -1,5 +1,5 @@
-from .models.CikLinSyllable import CikLinSyllable
-from .models.FoochowRomanized import FoochowRomanizedSyllable
+from .models.historical.CikLinSyllable import CikLinSyllable
+from .models.historical.FoochowRomanized import FoochowRomanizedSyllable
 
 def parse_ciklin(fanqie, tone):
     return CikLinSyllable.from_ciklin_string(fanqie, tone)

@@ -1,4 +1,4 @@
-from ..utils import normalise
+from ...utils import normalise
 
 # All possible initials of Foochow Romanized
 # 所有可能的福州話羅馬字聲母
