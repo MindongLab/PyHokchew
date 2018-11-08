@@ -1,5 +1,6 @@
 from .models.historical.CikLinSyllable import CikLinSyllable
 from .models.historical.FoochowRomanized import FoochowRomanizedSyllable
+from .models.historical.HectorScheme import HectorSyllable
 from .models.concurrent.matsu import WuyixingSyllable
 from .models.concurrent.minjiang import MinjiangSyllable
 from .models.yngping.YngPingTwo import YngPingSyllable
@@ -21,6 +22,9 @@ def ciklin_to_foochow_romanized_string(cInitial, cFinal, cTone):
     """
     return ciklin_to_foochow_romanized(CikLinSyllable.from_ciklin_string(cInitial+cFinal,cTone)).get_string()
 
+def hector_to_foochow_romanized(s):
+    h = HectorSyllable.from_string(s)
+    return FoochowRomanizedSyllable(h.initial,h.final,h.tone).get_string()
 
 def wuyixing_to_yngping(s):
     """從烏衣行轉換爲榕拼方案
@@ -53,12 +57,6 @@ def minjiang_to_yngping(s):
     """
     mj = MinjiangSyllable.from_string(s)
 
-
-    FINAL_MAPPING = {
-        # TODO: 榕拼無?
-        'ieu': 'iu'
-    }
-
     VOWEL_MAPPING = {
         'ë': 'oe',
         'ü': 'y'
@@ -73,3 +71,4 @@ def minjiang_to_yngping(s):
         mj.initial,
         final,
         mj.tone).to_typing()
+

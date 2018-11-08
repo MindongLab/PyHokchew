@@ -1,6 +1,6 @@
 import unittest
 from ..utils import normalise, denormalise
-from ..convert import wuyixing_to_yngping, minjiang_to_yngping
+from ..convert import wuyixing_to_yngping, minjiang_to_yngping, hector_to_foochow_romanized
 
 class ConversionTestCase(unittest.TestCase):
     def setUp(self):
@@ -39,3 +39,15 @@ class ConversionTestCase(unittest.TestCase):
         for mj, yngping in TESTS:
             with self.subTest(msg="測試閩江學院轉榕拼 %s => %s" % (mj, yngping)):
                 self.assertEqual(yngping, minjiang_to_yngping(mj))
+
+    def test_hector_to_foochow_romanized(self):
+        """測試 only3km 擬音 code 轉羅馬字
+        """
+
+        TESTS = [
+            ('iok4','iók'),
+        ]
+
+        for hector, fr in TESTS:
+            with self.subTest(msg=" %s => %s" % (hector, fr)):
+                self.assertEqual(fr, hector_to_foochow_romanized(hector))
