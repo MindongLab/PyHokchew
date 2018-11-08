@@ -125,6 +125,8 @@ class YngPingSyllable:
         return normalise(self.initial + rime + self.coda)
 
     def to_typing(self):
+        """轉爲鍵入方案
+        """
         return self.initial + self.rime + self.coda + self.tone
 
     def __str__(self):
