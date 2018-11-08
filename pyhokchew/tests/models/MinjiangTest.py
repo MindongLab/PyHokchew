@@ -13,7 +13,7 @@ class MinjiangParseTestCase(unittest.TestCase):
         """解析閩江學院的音節
         """
         for s, expected in self.PARSE_TEST_CASES:
-            with self.subTest(msg="解析烏閩江學院的音節 %s" % s):
+            with self.subTest(msg="解析閩江學院的音節 %s" % s):
                 syllable = MinjiangSyllable.from_string(s)
                 expectedInitial, expectedFinal, expectedTone = expected
                 self.assertEqual(syllable.initial, expectedInitial)
