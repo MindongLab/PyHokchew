@@ -44,6 +44,44 @@ FR_FINALS  = {
     'eu':   ['ĕu',   'ēu',  'áiu',  'áiuh','èu',   'âiu',  'ĕuh']  # 溝  
 }
 
+# 無調號下入
+FR_FINALS_RU_NOACCENT  = [
+    'uk',  # 春
+    'uah', # 花
+    'iok', # 香 
+    None,  # 秋
+    'ak',  # 山
+    'aih', # 開
+    'ah',  # 嘉 
+    'ik',  # 賓
+    'uak', # 歡
+    'o̤h',  # 歌
+    'ṳh',  # 須
+    None,  # 杯
+    'uh',  # 孤
+    'ek',  # 燈
+    'uok', # 光
+    'uih', # 輝
+    None,  # 燒
+    'ṳk',  # 銀
+    'ok',  # 缸
+    'ih',  # 之
+    'e̤k',  # 東
+    'auh', # 郊
+    'uoh', # 過
+    'a̤h',  # 西
+    'ioh', # 橋
+    'ieh', # 鷄
+    'iak', # 聲
+    'oih', # 催
+    'e̤h',  # 初
+    'iek', # 天
+    'iah', # 奇
+    'uaih',# 歪  
+    'euh'  # 溝  
+]
+
+
 # List of all possible finals in Foochow Romanized, without tonal marks.
 FR_FINALS_LIST = list(FR_FINALS.keys())
 
@@ -129,7 +167,7 @@ class FoochowRomanizedSyllable:
         """
         Parse a Foochow Romanized syllable from a string.
         :param s: A single Foochow Romanized syllable string.
-        :param allow_omit_ingbing: 允許上平聲調號省略。
+        :param allow_omit_ingbing: 允許上平、下入聲調號省略。
             See: https://cdo.wikipedia.org/wiki/%E5%B9%AB%E5%8A%A9:Ci%C5%8Fng-i%C3%B4ng_t%C4%95%CC%A4k#%E5%B0%8D%E6
             %95%99%E6%9C%83%E5%B9%B3%E8%A9%B1%E5%AD%97%E6%94%B9%E9%80%B2%E7%9A%84%E6%84%8F%E8%A6%8B
         """
@@ -151,13 +189,17 @@ class FoochowRomanizedSyllable:
             tone = FoochowRomanizedSyllable.TONE_MAPPING_REVERSE[mapping[1]]
         else:
             if (allow_omit_ingbing):
-                # 允許上平調省略
+                # 允許上平及下入調省略
                 try:
                     final = FR_FINALS_LIST.index(remaining)
                     tone = 1
                 except ValueError:
-                    raise ValueError("%s is not a valid Foochow Romanized syllable: %s not found in finals. " \
-                                     % (s, remaining))
+                    try:
+                        final = FR_FINALS_RU_NOACCENT.index(remaining)
+                        tone =  8
+                    except ValueError:
+                        raise ValueError("%s is not a valid Foochow Romanized syllable: %s not found in finals. " \
+                                        % (s, remaining))
             else:
                 raise ValueError("%s is not a valid Foochow Romanized syllable: %s not found in finals. " \
                                  % (s, remaining))

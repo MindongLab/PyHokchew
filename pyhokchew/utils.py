@@ -13,3 +13,7 @@ def normalise(s) -> str:
 
 def denormalise(s) -> str:
     return unicodedata.normalize('NFKD', s)
+
+def strip_accents(s):
+   return ''.join(c for c in unicodedata.normalize('NFD', s)
+                  if unicodedata.category(c) != 'Mn')
