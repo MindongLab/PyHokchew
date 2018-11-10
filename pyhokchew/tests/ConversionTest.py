@@ -1,7 +1,8 @@
 import unittest
 from ..utils import normalise, denormalise
 from ..convert import wuyixing_to_yngping, minjiang_to_yngping, hector_to_foochow_romanized_string, \
-        hector_to_yngping, foochow_romanized_to_yngping_string
+        hector_to_yngping, foochow_romanized_to_yngping_string, hector_to_foochow_romanized
+from ..models.historical.FoochowRomanized import FoochowRomanizedSyllable
 
 class ConversionTestCase(unittest.TestCase):
     def setUp(self):
@@ -310,3 +311,10 @@ class ConversionTestCase(unittest.TestCase):
                 with self.subTest(msg="測試歷史音系轉換 YP=%s HECTOR=%s FR=%s" % (yp, hector, fr)):
                     self.assertEqual(yp, hector_to_yngping(hector))
                     self.assertEqual(yp, foochow_romanized_to_yngping_string(fr, True))
+
+                    # 擬音轉羅馬字
+                    f1 = hector_to_foochow_romanized(hector)
+                    f2 = FoochowRomanizedSyllable.from_string(fr, True)
+                    self.assertEqual(f1.initial, f2.initial)
+                    self.assertEqual(f1.final, f2.final)
+                    self.assertEqual(f1.tone, f2.tone)
