@@ -1,4 +1,6 @@
 # PyHokchew
+
+## MOVED TO https://github.com/MindongLab/libhokchew/tree/master/python
 A Python library for dealing with Hokchew data.
 
 > This library is currently pre-alpha. Things can change without notice.
