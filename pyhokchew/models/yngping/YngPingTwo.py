@@ -24,11 +24,13 @@ YP_FINALS = [
     # 入聲韻 甲類
     'ah', 'ak', 'eh', 'oh', 'oeh', 'iah', 'iak', 'ieh', 'iek', 'uah', 'uak', 'uoh', 'uok', 'yoh', 'yok',
     # 入聲韻 丙類
-    'ik', 'eik', 'ih', 'eih', 'aik', 'uk', 'ouk', 'auk', 'yk', 'oeyk', 'oyk',
+    'ik', 'eik', 'ih', 'eih', 'aik', 'uk', 'ouk', 'auk', 'yk', 'oeyk', 'oyk', 'oeyh', 'oyh',
     # 陽聲韻 甲類
     'ang', 'iang', 'ieng', 'uang', 'uong', 'yong',
     # 陽聲韻 丙類
-    'ing', 'eing', 'aing', 'ung', 'oung', 'aung', 'yng', 'oeyng', 'oyng'
+    'ing', 'eing', 'aing', 'ung', 'oung', 'aung', 'yng', 'oeyng', 'oyng',
+    # TODO: INSPECT 兼容古音系
+    'ouh', 'uh', 'auh'
 ]
 
 YP_TONES = [
@@ -125,6 +127,8 @@ class YngPingSyllable:
         return normalise(self.initial + rime + self.coda)
 
     def to_typing(self):
+        """轉爲鍵入方案
+        """
         return self.initial + self.rime + self.coda + self.tone
 
     def __str__(self):

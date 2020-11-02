@@ -1,5 +1,5 @@
 import unittest
-from ..models.FoochowRomanized import FoochowRomanizedSyllable
+from ..models.historical.FoochowRomanized import FoochowRomanizedSyllable
 from ..parser import parse_ciklin
 from ..utils import normalise, denormalise
 from ..convert import foochow_romanized_to_ciklin, ciklin_to_foochow_romanized
